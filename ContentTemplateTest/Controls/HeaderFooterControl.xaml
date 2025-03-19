@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:ContentTemplateTest.ViewModels"
+             x:Class="ContentTemplateTest.Controls.HeaderFooterControl"
+             Title="Header/Footer Control">
+             <ContentPage.BindingContext>
+                <viewModels:HeaderFooterControlViewModel/>
+             </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ControlTemplate x:Key="HeaderFooterTemplate">
+            <Grid RowDefinitions ="0.1*, 0.8*, 0.1*">
+                <BoxView Color="{StaticResource Secondary}" />
+                <Label Margin="20,0,0,0"
+                       Text="{TemplateBinding HeaderText}"
+                       TextColor="{StaticResource Primary}"
+                       FontSize="24"
+                       VerticalOptions="Center" />
+                <ContentPresenter Grid.Row="1" />
+                <BoxView Grid.Row="2" 
+                         Color="{StaticResource Secondary}" />
+                <Label x:Name="changeThemeLabel" Grid.Row="2"
+                       Margin="20,0,0,0"
+                       Text="Change Theme"
+                       TextColor="{StaticResource Primary}"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Center">
+                </Label>                       
+            </Grid>
+        </ControlTemplate>
+    </ContentPage.Resources>
+</ContentPage>
